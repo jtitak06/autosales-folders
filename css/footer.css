@@ -1,0 +1,234 @@
+.footer {
+    background: #333;
+    color: #9e9e9e;
+    position: sticky;
+    top: 100%;
+    width: 100vw;
+    z-index: 19;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 599px) {
+    .footer-content {
+        max-width: 360px;
+        margin: auto;
+    }
+}
+
+.footer-column {
+    position: relative;
+    margin: 0 25px;
+}
+
+@media screen and (max-width: 409px) {
+    .footer-column {
+        margin: 0 6vw;
+    }
+}
+
+.footer-column:last-child {
+    max-width: 380px;
+}
+
+
+@media screen and (max-width: 1099px) {
+    .footer-column:last-child {
+        width: auto;
+        max-width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.footer-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+@media screen and (max-width: 1099px) {
+    .footer-title.last {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 409px) {
+    .footer-title.last {
+        margin-top: 3.9vw;
+    }
+}
+
+@media screen and (max-width: 409px) {
+    .footer-title {
+        font-size: 4.9vw;
+        margin: 4.9vw 0 0 0;
+    }
+}
+
+.footer-directory {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 4px 0;
+    margin: 6px 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 409px) {
+    .footer-directory {
+        margin: 1.26vw 0;
+        padding: 0.95vw 0;
+    }
+}
+
+.footer-directory-item {
+    padding: 5px 0;
+}
+
+@media screen and (max-width: 409px) {
+    .footer-directory-item {
+        padding: 1.09vw 0;
+        height: 4.6vw;
+    }
+}
+
+
+.footer-directory-link {
+    text-decoration: none;
+    color: #9e9e9e;
+    text-overflow: clip;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 409px) {
+    .footer-directory-link {
+        font-size: 3.9vw;
+    }
+}
+
+.footer-directory-link:hover {
+    color: #fff;
+}
+
+.footer-email-text {
+    font-size: 16px;
+    margin: 16px auto;
+}
+
+@media screen and (max-width: 409px) {
+    .footer-email-text {
+        font-size: 3.9vw;
+        margin: 3.9vw auto;
+    }
+}
+
+.email-input {
+    color: #fff;
+    background-color: #4c4c4c;
+    border-color: #4c4c4c;
+    border-style: solid;
+    border-radius: 2px;
+    height: 38px;
+    padding: 0 12px;
+    width: 55%;
+    accent-color: #1a79ff;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 599px) {
+    .email-input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 409px) {
+    .email-input {
+        height: 9.3vw;
+        padding: 0 2.95vw;
+        font-size: 3.7vw;
+    }
+}
+
+.email-subscribe {
+    margin-left: 8px;
+    background-color: #1a79ff;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 2px;
+    padding: 0 20px;
+    height: 38px;
+}
+
+@media screen and (max-width: 599px) {
+    .email-subscribe {
+        width: 100%;
+        padding: 0 12px;
+        margin: 8px 0 0 0;
+        font-size: 3.7vw;
+    }
+}
+
+@media screen and (max-width: 409px) {
+    .email-subscribe {
+        height: 9.3vw;
+        padding: 0 2.95vw;
+        margin: 1.95vw 0 0 0;
+    }
+}
+
+.social-wrapper {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1099px) {
+    .social-wrapper {
+        justify-content: center;
+    }
+}
+
+.social-logo {
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 409px) {
+    .social-logo {
+        height: 5.25vw;
+        width: 5.25vw;
+        margin: 0 1.31vw;
+    }
+}
+
+.footer-copyright {
+    font-size: 15px; 
+    text-align: right;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 599px) {
+    .footer-copyright {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 409px) {
+    .footer-copyright {
+        font-size: 3.7vw;
+        margin-top: 2.62vw;
+    }
+}

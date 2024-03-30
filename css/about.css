@@ -1,0 +1,125 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.about-hero-section {
+    display: flex;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/About-Hero-Image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    align-items: center;
+}
+
+.about-hero-image {
+    width: 100%;
+    opacity: 0;
+}
+
+.about-title-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.about-title {
+    text-align: center;
+    color: #fff;
+    background:rgba(0, 0, 0, 0.6);
+    width: 116px;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 749px) {
+    .about-title {
+        font-size: 24px;
+        width: 88px;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    .about-title {
+        font-size: 18px;
+        width: 64px;
+    }
+}
+
+.banner-ad-wrapper {
+    display: flex;
+}
+
+.banner-ad {
+    margin: 24px auto;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+@media screen and (max-width: 749px) {
+    .banner-ad {
+        margin: 14px auto;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    .banner-ad {
+        margin: 8px auto;
+    }
+}
+
+.banner-ad-image {
+    max-height: 66px;
+    width: 100%;
+}
+
+.about-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.about-vertical-ad-wrapper {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    margin: 0 24px;
+}
+
+@media screen and (max-width: 1149px) {
+    .about-vertical-ad-wrapper {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.about-middle-section {
+    max-width: 725px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.about-text {
+    margin: 8px 0;
+    font-size: 16px;
+    font-weight: 400;
+    text-indent: 20px;
+}
+
+@media screen and (max-width: 749px) {
+    .about-text {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    .about-text {
+        font-size: 10px;
+    }
+}
