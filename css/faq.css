@@ -1,0 +1,119 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.faq-hero-section {
+    display: flex;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/FAQ-Hero-Image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    align-items: center;
+}
+
+.faq-hero-image {
+    width: 100%;
+    opacity: 0;
+}
+
+.faq-hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    align-items: center;
+}
+
+.faq-title-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.faq-title {
+    text-align: center;
+    color: #fff;
+    background:rgba(0, 0, 0, 0.6);
+    width: 420px;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+@media screen and (max-width: 749px) {
+    .faq-title {
+        font-size: 24px;
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    .faq-title {
+        font-size: 18px;
+        width: 235px;
+    }
+}
+
+.faq-dropdown-section {
+    margin-bottom: 24px;
+}
+
+.faq-dropdown-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+}
+
+.accordion-dropdown-list-item {
+    width: 60%;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2px 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.accordion-dropdown {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 24px 0;
+    padding: 0 12px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.accordion-dropdown-icon {
+    width: 13px;
+    height: auto;
+    fill: #ccc;
+}
+  
+  .accordion-answer-wrapper {
+    display: none;
+    padding: 0 12px;
+    font-size: 14px;
+}
+  
+  .accordion-answer-wrapper.active {
+    display: block;
+}

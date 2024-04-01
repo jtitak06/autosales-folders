@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.make-table-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.make-table {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    margin: 48px 0;
+    width: 80%;
+    max-width: 720px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.75);
+}
+
+@media screen and (max-width: 649px) {
+    .make-table {
+        border: 0.15vw solid #ccc;
+        margin: 1.85vw 0;
+        border-radius: 1.23vw;
+        box-shadow: 0 0 1.23vw 0 rgba(0,0,0,0.75);
+    }
+}
+
+.make-table-title-wrapper {
+    background: linear-gradient(to right bottom, rgba(0,165,227,0.45) 0%, rgba(0,165,227,0.8) 35%, rgba(0,165,227,1) 100%);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+@media screen and (max-width: 649px) {
+    .make-table-title-wrapper {
+        border-top-left-radius: 1.23vw;
+        border-top-right-radius: 1.23vw;
+    }
+}
+
+.make-table-title {
+    color: #fff;
+    text-transform: uppercase;
+    margin: 6px 0;
+    padding: 0;
+    text-align: center;
+    font-size: 19px;
+}
+
+@media screen and (max-width: 649px) {
+    .make-table-title {
+        margin: .92vw 0;
+        font-size: 2.93vw;
+    }
+}
+
+.make-table-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(11, 33%);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    margin: 4px 0;
+}
+
+@media screen and (max-width: 899px) {
+    .make-table-content {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(16, 50%); 
+    }
+}
+
+@media screen and (max-width: 649px) {
+    .make-table-content {
+        margin: .62vw 0;
+    }
+}
+
+.make-table-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #00a5e3;
+    margin: 4px 0 4px 64px;
+    cursor: pointer;
+    flex-wrap: nowrap;
+    font-size: 16px;
+}
+
+.make-table-link:hover {
+    opacity: 0.75;
+}
+
+.make-table-link.last {
+    margin: 4px 0 4px 172px;
+}
+
+@media screen and (max-width: 899px) {
+    .make-table-link.last {
+        margin: 4px 0 4px 64px;
+    }
+}
+
+@media screen and (max-width: 649px) {
+    .make-table-link {
+        margin: .62vw 0 .62vw 9.86vw;
+        font-size: 2.47vw;
+    }
+}
+
+@media screen and (max-width: 649px) {
+    .make-table-link.last {
+        margin: .62vw 0 .62vw 9.86vw;
+        font-size: 2.47vw;
+    }
+}
+
+.make-table-logo {
+    height: 20px;
+    width: auto;
+    margin-right: 4px;
+}
+
+@media screen and (max-width: 649px) {
+    .make-table-logo {
+        height: 3.08vw;
+        margin-right: .62vw;
+    }
+}
