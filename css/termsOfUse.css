@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner-ad-wrapper {
+    display: flex;
+}
+
+.banner-ad {
+    margin: 24px auto;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+@media screen and (max-width: 749px) {
+    .banner-ad {
+        margin: 14px auto;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    .banner-ad {
+        margin: 8px auto;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .banner-ad {
+        margin: 1.6vw auto;
+    }
+}
+
+.terms-title {
+    text-align: center;
+    margin: 0 0 18px 0;
+    font-size: 32px;
+}
+
+@media screen and (max-width: 499px) {
+    .terms-title {
+        font-size: 5.8vw;
+        margin: 0 0 3.6vw 0;
+    }
+}
+
+.terms-page {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1149px) {
+    .terms-page {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+.terms-vertical-ad-wrapper {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    margin: 0 24px;
+}
+
+@media screen and (max-width: 1149px) {
+    .terms-vertical-ad-wrapper {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.terms-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.terms-paragraph {
+    font-size: 14px;
+    margin: 0 0 14px 0;
+}
+
+@media screen and (max-width: 499px) {
+    .terms-paragraph {
+        font-size: 2.8vw;
+        margin: 0 0 2.8vw 0;
+    }
+}
+
+.terms-paragraph.italic {
+    font-weight: 700;
+    font-style: italic;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.terms-link {
+    color: #1a79ff;
+}
+
+.terms-section-title {
+    text-align: center;
+    margin: 0 0 14px 0;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 499px) {
+    .terms-section-title {
+        margin: 0 0 2.8vw 0;
+        font-size: 4.01vw;
+    }
+}
+
+.terms-section-subtitle {
+    text-align: center;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 499px) {
+    .terms-section-subtitle {
+        margin: 0 0 2.8vw 0;
+        font-size: 3.2vw;
+    }
+}
+
+.terms-list {
+    margin: 0;
+    list-style-type: disc;
+    padding: 0 0 0 28px;
+}
+
+@media screen and (max-width: 499px) {
+    .terms-list {
+        padding: 0 0 0 5.6vw;
+    }
+}
+
+.terms-list-item {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 499px) {
+    .terms-list-item {
+        font-size: 2.4vw;
+    }
+}

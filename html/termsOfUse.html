@@ -1,28 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/termsOfUse.css">
-    <link rel="stylesheet" href="../css/footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Use | Auto Sales</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/termsOfUse.css">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
+    <header>
+        <nav class="desktop-header">
+          <div class="desktop-header-top">
+              <ul class="desktop-header-top__left">
+                <li>
+                  <a class="desktop-header-top-link" href="../html/results.html">
+                    Search for Car
+                  </a>
+                </li>
+                <li>
+                <a class="desktop-header-top-link" href="../html/listingsDealer.html">
+                  Search by Dealer
+                </a>
+              </li>
+                <li>
+                  <a class="desktop-header-top-link" href="../html/reviews.html">
+                    Reviews
+                  </a>
+                </li>
+              </ul>
+            <div class="desktop-header-top__center">
+              <span class="desktop-header-top__center-text">
+                cars, trucks, suvs, and more
+              </span>
+            </div>
+            <ul class="desktop-header-top__right">
+              <li>
+                <a class="desktop-header-top-link" href="../html/sellCar.html">
+                  Sell Your Car
+                </a>
+              </li>
+              <li>
+                <a class="desktop-header-top-link" href="../html/carShows.html">
+                  Car Shows
+                </a>
+              </li>
+              <li>
+                <a class="desktop-header-top-link" href="../html/calculator.html">
+                  Finance Calculator
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="desktop-header-bottom">
+            <div class="desktop-title-wrapper">
+              <a class="desktop-title" href="../html/index.html">
+                AutoSales.com
+              </a>
+            </div>
+            <div class="desktop-header-bottom-middle">
+              <div class="desktop-header-search">
+                <button type="button" class="desktop-header-search__button">
+                  <svg class="desktop-header-search__button-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M171.3 96H224v96H111.3l30.4-75.9C146.5 104 158.2 96 171.3 96zM272 192V96h81.2c9.7 0 18.9 4.4 25 12l67.2 84H272zm256.2 1L428.2 68c-18.2-22.8-45.8-36-75-36H171.3c-39.3 0-74.6 23.9-89.1 60.3L40.6 196.4C16.8 205.8 0 228.9 0 256V368c0 17.7 14.3 32 32 32H65.3c7.6 45.4 47.1 80 94.7 80s87.1-34.6 94.7-80H385.3c7.6 45.4 47.1 80 94.7 80s87.1-34.6 94.7-80H608c17.7 0 32-14.3 32-32V320c0-65.2-48.8-119-111.8-127zM434.7 368a48 48 0 1 1 90.5 32 48 48 0 1 1 -90.5-32zM160 336a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                </button>
+                <input
+                  class="desktop-header-search__input"
+                  placeholder="Enter make and model"
+                />
+                <button type="submit" class="desktop-header-search__submit">
+                  <svg class="desktop-header-search__button-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="desktop-header-bottom-right">
+              <ul class="desktop-header-bottom-right-wrapper">
+                <!-- <UnauthenticatedTemplate> -->
+                <li class="desktop-header-bottom-right-list-item">
+                  <a class="desktop-header-bottom-right-link" href="../html/signUp.html">
+                  <svg class="desktop-header-bottom-right-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+                  <div class="desktop-header-bottom-right-text-wrapper">
+                    <p class="desktop-header-bottom-right-top-text">
+                      Sign Up
+                    </p>
+                    <h5 class="desktop-header-bottom-right-bottom-text">
+                      Today
+                    </h5>
+                  </div>
+                </a>
+                </li>
+                <li class="desktop-header-bottom-right-list-item">
+                  <a class="desktop-header-bottom-right-link" href="../html/login.html">
+                  <svg class="desktop-header-bottom-right-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+                  <div class="desktop-header-bottom-right-text-wrapper">
+                    <p class="desktop-header-bottom-right-top-text">
+                      Hello, Log In
+                    </p>
+                    <h5 class="desktop-header-bottom-right-bottom-text">
+                      My Account
+                    </h5>
+                  </div>
+                </a>
+                </li>
+                <!-- </UnauthenticatedTemplate> -->
+                <!-- <AuthenticatedTemplate>
+                  <li class="desktop-header-bottom-right-list-item">
+                  <Link class="desktop-header-bottom-right-link" href="#">
+                  <svg class="desktop-header-bottom-right-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> --><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><!-- <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
+                  <div class="desktop-header-bottom-right-text-wrapper">
+                    <p class="desktop-header-bottom-right-top-text">
+                      Account
+                    </p>
+                    <h5 class="desktop-header-bottom-right-bottom-text">
+                      Settings
+                    </h5>
+                  </div>
+                  </Link>
+                </li>
+                <li class="desktop-header-bottom-right-list-item">
+                  <button type="button" class="desktop-header-bottom-right-button">
+                  <svg class="desktop-header-bottom-right-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">--> <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><!-- <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                  <div class="desktop-header-bottom-right-text-wrapper">
+                    <p class="desktop-header-bottom-right-top-text">
+                      Account
+                    </p>
+                    <h5 class="desktop-header-bottom-right-bottom-text">
+                      Logout
+                    </h5>
+                  </div>
+                  </button>
+                </li>
+                </AuthenticatedTemplate> -->
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <nav class="mobile-header">
+          <div class="mobile-header-content">
+            <button
+              type="button"
+              class="mobile-menu-button"
+            >
+              <svg class="mobile-menu-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+            </button>
+            <!-- <SearchBar showSearch={showSearch} searchMenu={searchMenu} /> -->
+            <div class="mobile-indicator">
+              <a class="mobile-indicator-link">
+                <button
+                  type="button"
+                  class="mobile-indicator-button"
+                >
+                <svg class="mobile-indicator-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                  <span class="mobile-indicator-text">Search</span>
+                </button>
+              </a>
+              <!-- <AuthenticatedTemplate>
+              <a class="mobile-indicator-link" to={PathConstants.ACCOUNT_SETTINGS}>
+                <button type="button" class="mobile-indicator-button">
+                  <FontAwesomeIcon icon={faGear} />
+                  <span class="mobile-indicator-text">Settings</span>
+                </button>
+              </a>
+              <div class="mobile-indicator-button-wrapper">
+                <button type="button" class="mobile-indicator-button">
+                  <FontAwesomeIcon icon={faRightFromBracket} />
+                  <span class="mobile-indicator-text">Logout</span>
+                </button>
+              </div>
+              </AuthenticatedTemplate> -->
+              <!-- <UnauthenticatedTemplate> -->
+              <a class="mobile-indicator-link" href="../html/login.html">
+                <button type="button" class="mobile-indicator-button">
+                  <svg class="mobile-indicator-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+                  <span class="mobile-indicator-text">Log In</span>
+                </button>
+              </a>
+              <a class="mobile-indicator-link" href="../html/signUp.html">
+                <button type="button" class="mobile-indicator-button">
+                  <svg class="mobile-indicator-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+                  <span class="mobile-indicator-text">Sign Up</span>
+                </button>
+              </a>
+              <!-- </UnauthenticatedTemplate> -->
+            </div>
+          </div>
+        </nav>
+          <div class="mobile-overlay">
+            <div class="mobile-menu">
+              <div class="mobile-menu-header">
+                <h2 class="mobile-menu-title">Menu</h2>
+                <button type="button" class="mobile-menu__close">
+                  <svg class="mobile-menu-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+                </button>
+              </div>
+             <ul class="mobile-menu-indicators">
+                <!-- <AuthenticatedTemplate>
+                <li>
+                  <a
+                    class="mobile-menu-indicator-link"
+                    onClick={displayMenu}
+                    to={PathConstants.ACCOUNT_SETTINGS}
+                  >
+                    <FontAwesomeIcon
+                      class="mobile-menu-indicator-icon"
+                      icon={faGear}
+                    />
+                    <span class="mobile-menu-indicator-text">Settings</span>
+                  </a>
+                </li>
+                <li>
+                  <button
+                    class="mobile-menu-indicator-link-button"
+                    onClick={() => Logout() && displayMenu}
+                  >
+                    <FontAwesomeIcon
+                      class="mobile-menu-indicator-icon"
+                      icon={faRightFromBracket}
+                    />
+                    <span class="mobile-menu-indicator-text">Logout</span>
+                  </button>
+                </li>
+                </AuthenticatedTemplate> -->
+                <!-- <UnauthenticatedTemplate> -->
+                <li>
+                  <a
+                    class="mobile-menu-indicator-link"
+                    href="../html/signUp.html"
+                  >
+                  <svg class="mobile-menu-indicator-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+                    <span class="mobile-menu-indicator-text">Sign Up</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="mobile-menu-indicator-link"
+                    href="../html/login.html"
+                  >
+                  <svg class="mobile-menu-indicator-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+                    <span class="mobile-menu-indicator-text">Log In</span>
+                  </a>
+                </li>
+                <!-- </UnauthenticatedTemplate> -->
+            </ul>
+              <ul class="mobile-menu-links">
+                <li class="mobile-menu-item">
+                  <a
+                    class="mobile-menu-link"
+                    href="../html/index.html"
+                  >
+                    <span class="mobile-menu-text">Home</span>
+                    <svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                  </a>
+                </li>
+                <li class="mobile-menu-item">
+                  <a
+                    class="mobile-menu-link"
+                    href="../html/results.html"
+                  >
+                    <span class="mobile-menu-text">Car Search</span>
+                    <svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                  </a>
+                </li>
+                <li class="mobile-menu-item">
+                  <a
+                    class="mobile-menu-link"
+                    href="../html/listingsDealer.html"
+                  >
+                    <span class="mobile-menu-text">Dealer Search</span>
+                    <svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                  </a>
+                </li>
+                <li class="mobile-menu-item">
+                  <a
+                    class="mobile-menu-link"
+                    href="../html/reviews.html"
+                  >
+                    <span class="mobile-menu-text">Reviews</span>
+                    <svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                  </a>
+                </li>
+                <li class="mobile-menu-item">
+                  <a
+                    class="mobile-menu-link"
+                    href="../html/sellCar.html"
+                  >
+                    <span class="mobile-menu-text">Sell Your Car</span>
+                    <svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                  </a>
+                </li>
+                <li class="mobile-menu-item">
+                  <a
+                    class="mobile-menu-link"
+                    href="../html/carShows.html"
+                  >
+                    <span class="mobile-menu-text">Car Shows</span>
+                    <svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                  </a>
+                </li>
+                <li class="mobile-menu-item">
+                  <a
+                    class="mobile-menu-link"
+                    href="../html/calculator.html"
+                  >
+                    <span class="mobile-menu-text">Calculator</span>
+                    <div><svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></div>              
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </header>
     <div class="banner-ad-wrapper">
-        <a class="banner-ad" to="/">
+        <a class="banner-ad" href="#">
           <img
             class="banner-ad-image"
-            src={ToyotaBanner}
+            src="../images/Banner-Ad-Toyota.jpg"
             alt="placeholder"
           />
         </a>
       </div>
       <h1 class="terms-title">Terms of Use Agreement</h1>
       <div class="terms-page">
-        <div class="privacy-policy-vertical-ad-wrapper">
+        <div class="terms-vertical-ad-wrapper">
           <a>
-            <img src={ToyotaVertical} alt="ad" />
+            <img src="../images/Toyota-Vertical-Ad.jpg" alt="ad" />
           </a>
         </div>
         <div class="terms-content">
@@ -231,15 +531,15 @@
             DriveChicago.com utilizes Google Maps API(s). Users of
             DriveChicago.com are also bound by{" "}
             <a
-              class="terms-a"
-              to="https://policies.google.com/terms?hl=en"
+              class="terms-link"
+              href="https://policies.google.com/terms?hl=en"
             >
               Google’s Terms of Service
             </a>{" "}
             and subject to the{" "}
             <a
-              class="terms-a"
-              to="https://policies.google.com/privacy"
+              class="terms-link"
+              href="https://policies.google.com/privacy"
             >
               Google Privacy Policy
             </a>
@@ -736,18 +1036,146 @@
         </div>
         <div class="terms-vertical-ad-wrapper">
           <a>
-            <img src={FordVertical} alt="ad" />
+            <img src="../images/Ford-Vertical-Ad.jpg" alt="ad" />
           </a>
         </div>
       </div>
       <div class="banner-ad-wrapper">
-        <a class="banner-ad" to="/">
+        <a class="banner-ad" href="#">
           <img
             class="banner-ad-image"
-            src={FordBanner}
+            src="../images/Banner-Ad-Ford.jpg"
             alt="placeholder"
           />
         </a>
       </div>
+      <footer class="footer">
+        <div class="footer-content">
+      <div class="footer-column">
+          <h4 class="footer-title">Information</h4>
+          <ul class="footer-directory">
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/about.html">
+                About
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/results.html">
+                Search for Car
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/carShows.html">
+                Car Shows
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/sellCar.html">
+                Sell Your Car
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/calculator.html">
+                Finance Calculator
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/reviews.html">
+                Reviews
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Listings</h4>
+          <ul class="footer-directory">
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/listingsDealer.html">
+                Dealer
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/listingsCity.html">
+                City
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/listingsMake.html">
+                Make
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Terms</h4>
+          <ul class="footer-directory">
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/termsOfUse.html">
+                Terms of Use
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/privacyPolicy.html">
+                Privacy Policy
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-directory">
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/faq.html">
+                FAQ
+              </a>
+            </li>
+            <li class="footer-directory-item">
+              <a class="footer-directory-link" href="../html/contact.html">
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title last">Newsletter</h4>
+          <p class="footer-email-text">
+            Enter your e-mail address below to subscribe to our newsletter and
+            keep up to date with discounts and special offers
+          </p>
+          <input class="email-input" placeholder="E-mail address..." />
+          <button class="email-subscribe" type="submit">Subscribe</button>
+          <p class="footer-email-text">Follow us on social networks</p>
+          <ul class="social-wrapper">
+            <li>
+              <a href="#">
+                <img class="social-logo" src="../logos/facebook.png" alt="Facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="social-logo" src="../logos/instagram.png" alt="Instagram" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="social-logo" src="../logos/twitter.png" alt="Twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="social-logo" src="../logos/youtube.png" alt="YouTube" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img class="social-logo" src="../logos/tiktok.png" alt="Tiktok" />
+              </a>
+            </li>
+          </ul>
+         <p class="footer-copyright">©2024 autosales.com</p>
+        </div>
+        </div>
+      </footer>
+      <script src="../js/header.js"></script>
 </body>
 </html>

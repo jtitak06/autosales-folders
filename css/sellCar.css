@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sell-car-title {
+    text-align: center;
+    margin: 40px 0 0 0;
+    font-size: 48px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1249px) {
+    .sell-car-title {
+        margin: 18px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    .sell-car-title {
+        font-size: 32px;
+    }
+}
+
+.sell-car-subtitle {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 8px 0;
+}
+
+@media screen and (max-width: 549px) {
+    .sell-car-subtitle {
+        font-size: 16px;
+    }
+}
+
+.sell-car-dropdown-section {
+    margin-bottom: 24px;
+}
+
+.sell-car-dropdown-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.sell-car-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0 48px;
+}
+
+.sell-car-form {
+    background: #1a79ff;
+    border-radius: 4px;
+    max-width: 600px;
+    width: 90%;
+}
+
+.sell-car-row-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.sell-car-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0 0 12px;
+    width: 140px;
+}
+
+.sell-car-input-wrapper:last-of-type {
+    flex-grow: 1;
+    margin-right: 12px;
+}
+
+.sell-car-label {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 2px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.sell-car-select {
+    background: #fff;
+    border: none;
+    padding: 6px 4px;
+    border-radius: 2px;
+}
+
+.sell-car-input {
+    padding: 6px 4px;
+    border-radius: 2px;
+    background: #fff;
+    border: none;
+    accent-color: #1a79ff;
+}
+
+.sell-car-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0;
+}
+
+.sell-car-button {
+    background: #ffdf40;
+    color: #000;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 2px;
+    padding: 4px 12px;
+}

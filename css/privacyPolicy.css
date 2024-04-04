@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner-ad-wrapper {
+    display: flex;
+}
+
+.banner-ad {
+    margin: 24px auto;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+@media screen and (max-width: 749px) {
+    .banner-ad {
+        margin: 14px auto;
+    }
+}
+
+@media screen and (max-width: 549px) {
+    .banner-ad {
+        margin: 8px auto;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .banner-ad {
+        margin: 1.6vw auto;
+    }
+}
+
+.privacy-policy-title {
+    text-align: center;
+    margin: 0 0 18px 0;
+    font-size: 32px;
+}
+
+@media screen and (max-width: 499px) {
+    .privacy-policy-title {
+        margin: 0 0 3.6vw 0;
+        font-size: 6.4vw;
+    }
+}
+
+.privacy-policy-page {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1149px) {
+    .privacy-policy-page {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+.privacy-policy-vertical-ad-wrapper {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    margin: 0 24px;
+}
+
+@media screen and (max-width: 1149px) {
+    .privacy-policy-vertical-ad-wrapper {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.privacy-policy-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.privacy-policy-box {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 14px 14px 0 14px;
+    margin: 0 0 14px 0;
+}
+
+@media screen and (max-width: 499px) {
+    .privacy-policy-box {
+        border: 0.2vw solid #ccc;
+        border-radius: .4vw;
+        padding: 2.8vw 2.8vw 0 2.8vw;
+        margin: 0 0 2.8vw 0;
+    }
+}
+
+.privacy-policy-paragraph {
+    font-size: 14px;
+    margin: 0 0 14px 0;
+}
+
+@media screen and (max-width: 499px) {
+    .privacy-policy-paragraph {
+        font-size: 2.8vw;
+        margin: 0 0 2.8vw 0;
+    }
+}
+
+.privacy-policy-link {
+    color: #1a79ff;
+}
+
+.privacy-policy-section-title {
+    text-align: center;
+    margin: 0 0 14px 0;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 499px) {
+    .privacy-policy-section-title {
+        font-size: 4.01vw;
+        margin: 0 0 2.8vw 0;
+    }
+}
+
+.privacy-policy-list {
+    margin: 0;
+    list-style-type: none;
+    padding: 0 0 0 28px;
+}
+
+@media screen and (max-width: 499px) {
+    .privacy-policy-list {
+        padding: 0 0 0 5.6vw;
+    }
+}
