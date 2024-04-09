@@ -540,10 +540,14 @@
     left: 0;
     height: 50px;
     background: #fff;
-    display: flex;
+    display: none;
     align-items: center;
     animation-name: mobileDown;
     animation-duration: 0.5s;
+}
+
+.mobile-search-menu.active {
+    display: flex;
 }
 
 .mobile-search-menu-submit {
