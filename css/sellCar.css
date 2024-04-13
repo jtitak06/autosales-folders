@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    color: #212529;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+    min-height: 100vh;
 }
 
 .sell-car-title {

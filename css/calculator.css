@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #212529;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+    min-height: 100vh;
+}
+
+.calculator-title {
+    margin: 48px 0 0 0;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1199px) {
+    .calculator-title {
+        margin: 24px 0 0 0;
+    }
+}
+
+.calculator-subtitle {
+    text-align: center;
+    margin: 12px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.calculator-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    max-width: 840px;
+    margin: auto;
+}
+
+@media screen and (max-width: 749px) {
+    .calculator-section {
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+    }
+}
+
+.calculator-app {
+    background: #ebebeb;
+    width: 50%;
+}
+
+@media screen and (max-width: 749px) {
+    .calculator-app {
+        width: 350px;
+    }
+}
+
+.calculator-section-title {
+    margin: 8px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.calculator-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    margin: 12px auto;
+}
+
+.calculator-section-label {
+    text-align: left;
+    width: 200px;
+    font-size: 14px;
+    margin-bottom: 2px;
+    font-weight: 400;
+}
+
+.calculator-section-input {
+    width: 200px;
+    box-sizing: border-box;
+    accent-color: #1a79ff;
+}
+
+.calculator-section-select {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 200px;
+}
+
+.calculator-section-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.calculator-section-item-button {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.calculator-section-item-button.active {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-weight: 700;
+}
+
+.calculator-display {
+    width: 50%;
+}
+
+@media screen and (max-width: 749px) {
+    .calculator-display {
+        width: 350px;
+    }
+}
+
+.calculator-display-amount {
+    text-align: center;
+    margin: 12px 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.calculator-display-disclaimer {
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    max-width: 200px;
+}
+
+.calculator-details-title {
+    text-align: center;
+    margin: 14px 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.calculator-details-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calculator-details-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 28px;
+    height: 38px;
+}
+
+.calculator-details-text {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.calculator-details-text.bold {
+    font-weight: 700;
+}
+
+.calculator-details-line {
+    margin: 8px 28px;
+}
+
+.calculator-details-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 6px 0 18px;
+}
+
+.calculator-details-button {
+    padding: 6px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    background: #1a79ff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+}
+
+.banner-ad-wrapper {
+    display: flex;
+}
+
+.banner-ad {
+    margin: 24px auto;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+.banner-ad-image {
+    max-height: 66px;
+    width: 100%;
+}
+
+.calculator-dropdown-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto 42px;
+}
+
+.calculator-dropdown-title {
+    text-align: center;
+    font-size: 24px;
+}

@@ -137,13 +137,16 @@
     clip-path: polygon(0 0, 87% 0, 100% 100%, 13% 100%);
     background: transparent;
     border: none;
-    color: rgba(0, 0, 0, 0.3);
+    fill: rgba(0, 0, 0, 0.3);
     padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .desktop-header-search__button:hover {
     background: #999;
-    color: #fff;
+    fill: #fff;
 }
 
 .desktop-header-search__input {
@@ -283,7 +286,7 @@
 }
 
 .desktop-header-search__button-image {
-    height: 18px;
+    height: 14px;
     width: auto;
 }
 
@@ -304,13 +307,16 @@
     clip-path: polygon(13% 0, 100% 0%, 87% 100%, 0 100%);
     background: transparent;
     border: none;
-    color: rgba(0, 0, 0, 0.3);
+    fill: rgba(0, 0, 0, 0.3);
     padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .desktop-header-search__submit:hover {
     background: #999;
-    color: #fff;
+    fill: #fff;
 }
 
 /* Mobile Header */
