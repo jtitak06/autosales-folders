@@ -352,7 +352,7 @@ option {
 .make-table-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(11, 33%);
+    grid-template-rows: repeat(11, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px; 
     margin: 4px 0;
@@ -376,7 +376,7 @@ option {
     flex-direction: row;
     align-items: center;
     color: #1a79ff;
-    margin: 4px 0 4px 64px;
+    margin: 4px 0 4px 58px;
     cursor: pointer;
     flex-wrap: nowrap;
     font-size: 16px;
@@ -872,6 +872,31 @@ option {
     }
 }
 
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
 .search-section {
     width: 90vw;
     margin: auto;
@@ -895,6 +920,7 @@ option {
 
 .grid-card {
     max-width: 245px;
+    width: calc(25% - 15px); 
     display: flex;
     flex-direction: column;
     margin: 0 10px;
@@ -903,6 +929,18 @@ option {
     border-radius: 4px;
     border: rgba(0, 0, 0, 0.2) 0.5px solid;
     cursor: default;
+}
+
+@media (max-width: 1149px) {
+    .grid-card {
+        width: calc(33.33% - 15px); /* Adjust width and margin as needed */
+    }
+}
+
+@media (max-width: 859px) {
+    .grid-card {
+        width: calc(50% - 15px); /* Adjust width and margin as needed */
+    }
 }
 
 @media screen and (max-width: 649px) {
