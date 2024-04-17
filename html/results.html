@@ -434,12 +434,12 @@
                         </div>
                     </div>
                     <div class="results-side-menu-form-row">
-                        <select class="results-side-menu-select">
+                        <select id="yearFrom" class="results-side-menu-select">
                             <option value="">Select Year</option>
                             <!-- Year options will be added here dynamically -->
                         </select>
                         <span>to</span>
-                        <select class="results-side-menu-select">
+                        <select id="yearTo" class="results-side-menu-select">
                             <option value="">Select Year</option>
                             <!-- Year options will be added here dynamically -->
                         </select>
@@ -599,18 +599,89 @@
                     </ul>
                 </div>
             </div>
-            <!-- <SideMenu /> -->
-            <div className="results-vertical-ad-wrapper">
-              <a>
-                <img src="../images/Ford-Vertical-Ad.jpg" alt="ad" />
-              </a>
+            <div class="results-vertical-ad-wrapper">
+                <a>
+                  <img src="../images/Ford-Vertical-Ad.jpg" alt="ad" />
+                </a>
+              </div>
+              <div class="results-vertical-ad-wrapper">
+                <a>
+                  <img src="../images/Toyota-Vertical-Ad.jpg" alt="ad" />
+                </a>
+              </div>
+        </div>
+        <div class="results-body">
+            <div class="results-body-top">
+              <div class="results-body-top-left">
+                <ul class="results-body-list">
+                  <li class="results-body-list-item" id="filter-item">
+                    <button class="filter-button" onclick="mobileMenu()">
+                      <span><i class="fas fa-filter"></i> Filter</span>
+                    </button>
+                    <!-- SideMenu content here (if mobile is true) -->
+                  </li>
+                  <li class="results-body-list-item">
+                    <button onclick="gridMenu()" class="results-body-button">
+                      <img class="results-body-button-icon" src="gridView ? BlueGridIcon : GridIcon" alt="grid" />
+                    </button>
+                  </li>
+                  <li class="results-body-list-item">
+                    <button onclick="tableMenu()" class="results-body-button">
+                      <img class="results-body-button-icon" id="table-icon" src="tableView ? BlueTableIcon : TableIcon" alt="table" />
+                    </button>
+                  </li>
+                  <li class="results-body-list-item">
+                    <button onclick="listMenu()" class="results-body-button">
+                      <img class="results-body-button-icon" src="listView ? BlueListIcon : ListIcon" alt="list" />
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div class="results-body-top-right">
+                <div class="results-body-filter-wrapper">
+                  <p class="results-body-filter-category">Sort:</p>
+                  <select class="results-body-filter-select" onchange="onSelectSort()">
+                    <option>Select</option>
+                    <option value="mileage-asc">Mileage &#8593;</option>
+                    <option value="mileage-desc">Mileage &#8595;</option>
+                    <option value="price-asc">Price &#8593;</option>
+                    <option value="price-desc">Price &#8595;</option>
+                    <option value="year-asc">Year &#8593;</option>
+                    <option value="year-desc">Year &#8595;</option>
+                  </select>
+                </div>
+                <div class="results-body-filter-wrapper">
+                  <p class="results-body-filter-category">Show:</p>
+                  <select class="results-body-filter-select number" onchange="setCarsPerPage(event.target.value)">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div className="results-vertical-ad-wrapper">
-              <a>
-                <img src="../images/Toyota-Vertical-Ad.jpg" alt="ad" />
-              </a>
+            <div class="results-section-middle">
+              <!-- Content for displaying grid, table, or list view -->
             </div>
-          </div>
+            <div class="results-section-bottom">
+              <div class="results-page-buttons-wrapper">
+                <ul class="results-pagination-list">
+                  <li class="results-pagination-list-item">
+                    <button class="results-pagination-button" onclick="prevPage()">
+                      <i class="fas fa-angle-left"></i>
+                    </button>
+                  </li>
+                  <!-- Logic to generate pagination buttons goes here -->
+                  <li class="results-pagination-list-item">
+                    <button class="results-pagination-button" onclick="nextPage()">
+                      <i class="fas fa-angle-right"></i>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>                
       </div>
     <footer class="footer">
         <div class="footer-content">
@@ -740,5 +811,6 @@
         </div>
     </footer>
     <script src="../js/header.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

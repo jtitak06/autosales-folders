@@ -3,58 +3,65 @@ async function fetchData(url) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
     return await response.json();
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
     return [];
   }
 }
 
 function populateDropdown(selectElement, options, defaultValue) {
-  selectElement.innerHTML = ''; // Clear existing options
+  selectElement.innerHTML = ""; // Clear existing options
 
-  options.forEach(option => {
-    const optionElement = document.createElement('option');
+  options.forEach((option) => {
+    const optionElement = document.createElement("option");
     optionElement.value = option;
     optionElement.textContent = option;
     if (option === defaultValue) {
-      optionElement.setAttribute('selected', 'selected'); // Set the selected attribute
+      optionElement.setAttribute("selected", "selected"); // Set the selected attribute
     }
     selectElement.appendChild(optionElement);
   });
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
-  const yearFromSelect = document.getElementById('yearFrom');
-  const yearToSelect = document.getElementById('yearTo');
-  const currentMakeSelect = document.getElementById('currentMake');
-  const currentModelSelect = document.getElementById('currentModel');
+document.addEventListener("DOMContentLoaded", async function () {
+    const yearFromSelect = document.getElementById("yearFrom");
+    const yearToSelect = document.getElementById("yearTo");
+    const currentMakeSelect = document.getElementById("currentMake");
+    const currentModelSelect = document.getElementById("currentModel");
 
   // Set default values programmatically
-  const defaultYearValue = 'Select Year';
-  const defaultMakeValue = 'Select Make';
-  const defaultModelValue = 'Select Model';
+  const defaultYearValue = "Select Year";
+  const defaultMakeValue = "Select Make";
+  const defaultModelValue = "Select Model";
 
   let years = [];
 
   try {
-    const data = await fetchData('https://api.drivechicago.cloud/lookup/yearMakeModels?apiKey=69d85981-1856-436e-a3be-99c6bc4e83b4');
+    const data = await fetchData(
+      "https://api.drivechicago.cloud/lookup/yearMakeModels?apiKey=69d85981-1856-436e-a3be-99c6bc4e83b4"
+    );
 
-    const yearsSet = new Set(data.map(item => item.year));
-    const makesSet = new Set(data.map(item => item.make));
-    const modelsSet = new Set(data.map(item => item.model));
+    const yearsSet = new Set(data.map((item) => item.year));
+    const makesSet = new Set(data.map((item) => item.make));
+    const modelsSet = new Set(data.map((item) => item.model));
 
     years = Array.from(yearsSet).sort((a, b) => b - a);
     const makes = Array.from(makesSet).sort();
     const models = Array.from(modelsSet).sort();
 
     // Populate dropdowns with dynamic data
-    populateDropdown(yearFromSelect, years, defaultYearValue, 'Select Year');// Set default text for Years
-    populateDropdown(yearToSelect, years, defaultYearValue, 'Select Year');// Set default text for Years
-    populateDropdown(currentMakeSelect, makes, defaultMakeValue, 'Select Make'); // Set default text for Makes
-    populateDropdown(currentModelSelect, models, defaultModelValue, 'Select Model'); // Set default text for Models
+    populateDropdown(yearFromSelect, years, defaultYearValue, "Select Year"); // Set default text for Years
+    populateDropdown(yearToSelect, years, defaultYearValue, "Select Year"); // Set default text for Years
+    populateDropdown(currentMakeSelect, makes, defaultMakeValue, "Select Make"); // Set default text for Makes
+    populateDropdown(
+      currentModelSelect,
+      models,
+      defaultModelValue,
+      "Select Model"
+    ); // Set default text for Models
 
     // Set default values for select elements from HTML
     yearFromSelect.value = defaultYearValue;
@@ -63,66 +70,67 @@ document.addEventListener('DOMContentLoaded', async function() {
     currentModelSelect.value = defaultModelValue;
 
     // Ensure "Select" is selected after populating the dropdowns
-    yearFromSelect.value = 'Select Year';
-    yearToSelect.value = 'Select Year';
-    currentMakeSelect.value = 'Select Make';
-    currentModelSelect.value = 'Select Model';
+    yearFromSelect.value = "Select Year";
+    yearToSelect.value = "Select Year";
+    currentMakeSelect.value = "Select Make";
+    currentModelSelect.value = "Select Model";
 
     // Store selected yearFrom and yearTo values
     let selectedYearFrom = defaultYearValue;
     let selectedYearTo = defaultYearValue;
 
-    console.log('selected yearFrom', selectedYearFrom);
-    console.log('selected YearTo', selectedYearTo);
-
     // Event listener to update yearTo options based on selected yearFrom
-    yearFromSelect.addEventListener('change', function() {
+    yearFromSelect.addEventListener("change", function () {
       selectedYearFrom = yearFromSelect.value;
-      const availableYearsTo = years.filter(year => year >= selectedYearFrom || year === '');
-      populateDropdown(yearToSelect, availableYearsTo, '', 'Select Year'); // Add "Select Year" option
+      const availableYearsTo = years.filter(
+        (year) => year >= selectedYearFrom || year === ""
+      );
+      populateDropdown(yearToSelect, availableYearsTo, "", "Select Year"); // Add "Select Year" option
       yearToSelect.value = selectedYearTo; // Restore selected yearTo value
     });
 
     // Event listener to update yearFrom options based on selected yearTo
-    yearToSelect.addEventListener('change', function() {
+    yearToSelect.addEventListener("change", function () {
       selectedYearTo = yearToSelect.value;
-      const availableYearsFrom = years.filter(year => year <= selectedYearTo || year === '');
-      populateDropdown(yearFromSelect, availableYearsFrom, '', 'Select Year'); // Add "Select Year" option
+      const availableYearsFrom = years.filter(
+        (year) => year <= selectedYearTo || year === ""
+      );
+      populateDropdown(yearFromSelect, availableYearsFrom, "", "Select Year"); // Add "Select Year" option
       yearFromSelect.value = selectedYearFrom; // Restore selected yearFrom value
     });
   } catch (error) {
-    console.error('Error fetching and populating data:', error);
+    console.error("Error fetching and populating data:", error);
   }
 });
 
 // Function to populate dropdown options
 function populateDropdown(selectElement, options, defaultValue, defaultText) {
   // Clear existing options
-  selectElement.innerHTML = '';
+  selectElement.innerHTML = "";
 
   // Add default option
-  const defaultOption = document.createElement('option');
+  const defaultOption = document.createElement("option");
   defaultOption.textContent = defaultText;
   defaultOption.disabled = true; // Disable the default option
   selectElement.appendChild(defaultOption);
 
   // Add dynamic options
-  options.forEach(option => {
-    const optionElement = document.createElement('option');
+  options.forEach((option) => {
+    const optionElement = document.createElement("option");
     optionElement.value = option;
     optionElement.textContent = option;
     selectElement.appendChild(optionElement);
   });
 
   // Set default value
-  if (defaultValue || defaultValue === '') {
+  if (defaultValue || defaultValue === "") {
     selectElement.value = defaultValue;
   } else {
-    selectElement.value = ''; // Set default value to empty string if defaultValue is not provided
+    selectElement.value = ""; // Set default value to empty string if defaultValue is not provided
   }
 }
 
-/* document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
   const carousel = document.getElementById('carousel');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
@@ -162,6 +170,6 @@ function populateDropdown(selectElement, options, defaultValue, defaultText) {
       // Update currentIndex
       currentIndex = Math.min(currentIndex + 1, carousel.children.length - 1);
   });
-}); */
+});
 
 
