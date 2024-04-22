@@ -12,18 +12,30 @@ async function fetchData(url) {
   }
 }
 
-function populateDropdown(selectElement, options, defaultValue) {
-  selectElement.innerHTML = ""; // Clear existing options
+function populateDropdown(selectElement, options, defaultValue, defaultText) {
+  // Clear existing options
+  selectElement.innerHTML = "";
 
+  // Add default option
+  const defaultOption = document.createElement("option");
+  defaultOption.textContent = defaultText;
+  defaultOption.disabled = true; // Disable the default option
+  selectElement.appendChild(defaultOption);
+
+  // Add dynamic options
   options.forEach((option) => {
     const optionElement = document.createElement("option");
     optionElement.value = option;
     optionElement.textContent = option;
-    if (option === defaultValue) {
-      optionElement.setAttribute("selected", "selected"); // Set the selected attribute
-    }
     selectElement.appendChild(optionElement);
   });
+
+  // Set default value
+  if (defaultValue || defaultValue === "") {
+    selectElement.value = defaultValue;
+  } else {
+    selectElement.value = ""; // Set default value to empty string if defaultValue is not provided
+  }
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -46,22 +58,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const yearsSet = new Set(data.map((item) => item.year));
     const makesSet = new Set(data.map((item) => item.make));
-    const modelsSet = new Set(data.map((item) => item.model));
 
     years = Array.from(yearsSet).sort((a, b) => b - a);
     const makes = Array.from(makesSet).sort();
-    const models = Array.from(modelsSet).sort();
 
     // Populate dropdowns with dynamic data
     populateDropdown(yearFromSelect, years, defaultYearValue, "Select Year"); // Set default text for Years
     populateDropdown(yearToSelect, years, defaultYearValue, "Select Year"); // Set default text for Years
     populateDropdown(currentMakeSelect, makes, defaultMakeValue, "Select Make"); // Set default text for Makes
     populateDropdown(
-      currentModelSelect,
-      models,
-      defaultModelValue,
-      "Select Model"
-    ); // Set default text for Models
+      currentModelSelect, [], defaultModelValue, defaultModelValue
+    ); // Set default text for Models and initialize with empty options
 
     // Set default values for select elements from HTML
     yearFromSelect.value = defaultYearValue;
@@ -98,37 +105,18 @@ document.addEventListener("DOMContentLoaded", async function () {
       populateDropdown(yearFromSelect, availableYearsFrom, "", "Select Year"); // Add "Select Year" option
       yearFromSelect.value = selectedYearFrom; // Restore selected yearFrom value
     });
+
+    // Event listener to update model options based on selected make
+    currentMakeSelect.addEventListener("change", async function () {
+      const selectedMake = currentMakeSelect.value;
+      const modelsForMake = data.filter((item) => item.make === selectedMake).map((item) => item.model);
+      populateDropdown(currentModelSelect, modelsForMake, defaultModelValue, "Select Model");
+    });
+
   } catch (error) {
     console.error("Error fetching and populating data:", error);
   }
 });
-
-// Function to populate dropdown options
-function populateDropdown(selectElement, options, defaultValue, defaultText) {
-  // Clear existing options
-  selectElement.innerHTML = "";
-
-  // Add default option
-  const defaultOption = document.createElement("option");
-  defaultOption.textContent = defaultText;
-  defaultOption.disabled = true; // Disable the default option
-  selectElement.appendChild(defaultOption);
-
-  // Add dynamic options
-  options.forEach((option) => {
-    const optionElement = document.createElement("option");
-    optionElement.value = option;
-    optionElement.textContent = option;
-    selectElement.appendChild(optionElement);
-  });
-
-  // Set default value
-  if (defaultValue || defaultValue === "") {
-    selectElement.value = defaultValue;
-  } else {
-    selectElement.value = ""; // Set default value to empty string if defaultValue is not provided
-  }
-}
 
 document.addEventListener("DOMContentLoaded", function() {
   const carousel = document.getElementById('carousel');
