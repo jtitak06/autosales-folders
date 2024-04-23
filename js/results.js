@@ -52,6 +52,34 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     let years = [];
 
+// Function to toggle active class on results-side-menu-dropdown
+function toggleDropdown() {
+    const dropdownList = this.nextElementSibling.nextElementSibling; // Get the next sibling element, which is the dropdown list
+    dropdownList.classList.toggle('active');
+
+// Get the SVG element
+    const svgIcon = this.querySelector('.results-side-menu-icon');
+
+   // Toggle the SVG icon based on the presence of the 'active' class
+   if (dropdownList.classList.contains('active')) {
+    // Dropdown is active, change the SVG icon
+    svgIcon.setAttribute('viewBox', '0 0 448 512');
+    svgIcon.innerHTML = '<path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/>'; // SVG path for active state
+} else {
+    // Dropdown is inactive, change the SVG icon
+    svgIcon.setAttribute('viewBox', '0 0 448 512');
+    svgIcon.innerHTML = '<path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>'; // SVG path for inactive state
+}}
+
+// Event listener to toggle active class on click of results-side-menu-dropdown
+document.querySelectorAll('.results-side-menu-dropdown').forEach(button => {
+    button.addEventListener('click', toggleDropdown);
+    button.addEventListener('blur', () => {
+        const dropdownList = button.nextElementSibling;
+        dropdownList.classList.remove('active');
+    });
+});
+
     try {
         const data = await fetchData(
             "https://api.drivechicago.cloud/lookup/yearMakeModels?apiKey=69d85981-1856-436e-a3be-99c6bc4e83b4"
@@ -197,25 +225,35 @@ function removeModelOptionsForMake(make) {
     allModelOptions = allModelOptions.filter(model => !model.startsWith(make + '_'));
 }
 
-// Function to clear model dropdown list for a specific make
-function clearModelDropdown(deletedMake) {
-    console.log("Deleted make:", deletedMake);
-    const modelDropdowns = document.querySelectorAll('.results-section.model .results-dropdown-list');
+// Function to remove models from dropdown after the matching make is deleted
+async function clearModelDropdown(deletedMake) {
+    console.log("Clearing model dropdown for deleted make:", deletedMake);
+
+    const selectedList = document.querySelector('.results-dropdown-selected-list');
+    const selectedSection = document.querySelector('.results-section.model');
+    const modelDropdowns = selectedSection.querySelectorAll('.results-dropdown-list');
+
     modelDropdowns.forEach(modelDropdown => {
-        console.log("Model dropdown:", modelDropdown);
         const modelItems = modelDropdown.querySelectorAll('.results-dropdown-list-item');
-        console.log("Model items:", modelItems);
         modelItems.forEach(modelItem => {
-            // Check if the model item's id starts with the deleted make
-            console.log("Model item id:", modelItem.id);
-            console.log("Deleted make + '_':", deletedMake + '_');
-            if (modelItem.id.startsWith(deletedMake + '_')) {
-                console.log("Removing model:", modelItem.id);
+            const modelMake = modelItem.textContent.trim().split('_')[0];
+            if (modelMake === deletedMake) {
                 modelItem.remove(); // Remove the model item from the DOM
-                // Remove the model option from the global array
-                allModelOptions = allModelOptions.filter(option => !option.startsWith(deletedMake + '_'));
-                console.log("All model options:", allModelOptions);
             }
         });
     });
+
+    // Update model dropdowns after deleting the make
+    const selectedMakes = Array.from(selectedList.querySelectorAll('.results-dropdown-selected-list-item')).map(item => item.dataset.make);
+    if (selectedMakes.length === 0) {
+        // Clear model dropdowns if no make is selected
+        modelDropdowns.forEach(modelDropdown => {
+            modelDropdown.innerHTML = "";
+        });
+    } else {
+        // Update model dropdowns for remaining makes
+        selectedMakes.forEach(make => {
+            populateModelDropdown(make);
+        });
+    }
 }

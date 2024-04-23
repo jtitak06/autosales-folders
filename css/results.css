@@ -283,6 +283,11 @@ body {
     height: fit-content;
     max-height: 250px;
     overflow-y: scroll;
+    display: none;
+}
+
+.results-dropdown-list.active {
+    display: block;
 }
 
 .results-dropdown-list-item {
