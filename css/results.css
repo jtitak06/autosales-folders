@@ -112,12 +112,13 @@ body {
 }
 
 .title-section {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     border-bottom: rgba(0, 0, 0, 0.4) solid .4px;
     padding: 6px 10px;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .results-side-menu-title {
@@ -330,7 +331,12 @@ body {
 @media screen and (max-width: 1009px) {
     .side-menu-overlay {
         visibility: visible;
+        display: none;
     }
+}
+
+.side-menu-overlay.show {
+    display: initial;
 }
 
 .mobile-side-menu {
@@ -351,13 +357,22 @@ body {
     margin: 0;
     color: #1a79ff;
     text-transform: uppercase;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .mobile-side-menu-close {
+    position: absolute; /* Position the close button absolutely */
+    right: 10px; /* Adjust the distance from the right */
     border: none;
     background: transparent;
     padding: 0;
     cursor: pointer;
+}
+
+.mobile-side-menu-close-icon {
+    height: 15px;
+    width: auto;
 }
 
 .mobile-side-menu-button-wrapper {
