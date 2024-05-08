@@ -12,6 +12,93 @@ async function fetchData(url) {
     }
 }
 
+// Function to toggle the side menu
+function toggleSideMenu() {
+    const sideMenuOverlay = document.querySelector(".side-menu-overlay");
+    sideMenuOverlay.classList.toggle("show");
+}
+
+// Event listener for the close button
+document.querySelector(".mobile-side-menu-close").addEventListener("click", function() {
+    toggleSideMenu(); // Call the toggleSideMenu function when the close button is clicked
+});
+
+// Function to toggle active class on results-side-menu-dropdown
+function toggleDropdown() {
+    const dropdownList = this.nextElementSibling.nextElementSibling; // Get the next sibling element, which is the dropdown list
+    dropdownList.classList.toggle('active');
+
+    // Get the SVG element
+    const svgIcon = this.querySelector('.results-side-menu-icon');
+
+    // Toggle the SVG icon based on the presence of the 'active' class
+    if (dropdownList.classList.contains('active')) {
+        // Dropdown is active, change the SVG icon
+        svgIcon.setAttribute('viewBox', '0 0 448 512');
+        svgIcon.innerHTML = '<path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/>'; // SVG path for active state
+    } else {
+        // Dropdown is inactive, change the SVG icon
+        svgIcon.setAttribute('viewBox', '0 0 448 512');
+        svgIcon.innerHTML = '<path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>'; // SVG path for inactive state
+    }
+}
+
+// Event listener to toggle active class on click of results-side-menu-dropdown
+document.querySelectorAll('.results-side-menu-dropdown').forEach(button => {
+    button.addEventListener('click', toggleDropdown);
+    button.addEventListener('blur', () => {
+        const dropdownList = button.nextElementSibling;
+        dropdownList.classList.remove('active');
+    });
+});
+
+// Handle form submission
+document.querySelectorAll('[data-type="search-button"]').forEach(button => {
+    button.addEventListener('click', async () => {
+        const make = document.getElementById('make').value;
+        const model = document.getElementById('model').value;
+        
+        const requestData = {
+          make,
+          model
+        };
+      
+        try {
+          const response = await fetchSearchResults(requestData);
+          const searchResultsDiv = document.getElementById('search-results');
+          searchResultsDiv.innerHTML = renderSearchResults(response.data);
+        } catch (error) {
+          console.error('Error fetching search results:', error);
+        }
+    });
+  });
+
+// Function to fetch search results
+async function fetchSearchResults(requestData) {
+    try {
+      const API_KEY = 'YOUR_API_KEY'; // Replace with your API key
+      const baseUrl = `https://api.drivechicago.cloud/vehicle/search?apiKey=${API_KEY}`;
+      
+      const res = await axios.post(baseUrl, requestData, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      return res.data;
+    } catch (error) {
+      throw new Error('Error fetching search results');
+    }
+  }
+  
+  // Function to render search results
+  function renderSearchResults(results) {
+    let html = '';
+    results.forEach(result => {
+      html += `<div>${result.make} ${result.model}</div>`;
+    });
+    return html;
+  }
+
 // Function to populate dropdown options
 function populateDropdown(selectElement, options, defaultValue, defaultText) {
     // Clear existing options
@@ -41,6 +128,9 @@ function populateDropdown(selectElement, options, defaultValue, defaultText) {
     }
 }
 
+// Global array to store all selected makes
+let selectedMakes = [];
+
 // Function to add selected make to the selected make list
 async function addSelectedMake(make, selectedMakeList) {
     // Check if the make is already in the selected list
@@ -59,21 +149,30 @@ async function addSelectedMake(make, selectedMakeList) {
         closeButton.innerHTML = '<svg class="results-dropdown-selected-close-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>';
         closeButton.addEventListener('click', async function() {
             listItem.remove();
+            // Remove the make from the selectedMakes array
+            const index = selectedMakes.indexOf(make);
+            if (index !== -1) {
+                selectedMakes.splice(index, 1);
+            }
             await clearModelDropdown(make); // Clear model dropdown options for the deleted make
         });
 
         listItem.appendChild(closeButton);
         selectedMakeList.appendChild(listItem); // Append to the selectedMakeList
         
+        // Add the selected make to the array
+        selectedMakes.push(make);
+
         // Ensure populateModelDropdown is called after adding the make
         await populateModelDropdown(); // Wait for populateModelDropdown to complete
+
+        // Log the model dropdown
+        const modelDropdown = document.querySelectorAll('.results-dropdown-list[data-type="model"]');
     }
 };
 
 // Function to add selected model to the selected model list
 async function addSelectedModel(model, selectedModelList) {
-    console.log('Selected Model List:', selectedModelList); // Log selectedModelList for debugging
-
     // Check if selectedModelList is null or undefined
     if (!selectedModelList) {
         console.error('Selected model list is null or undefined.');
@@ -96,7 +195,6 @@ async function addSelectedModel(model, selectedModelList) {
         closeButton.innerHTML = '<svg class="results-dropdown-selected-close-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>';
         closeButton.addEventListener('click', async function() {
             listItem.remove();
-            console.log('Model deleted:', model); // Log the deleted model
             // You can add a function here to handle model deletion if needed
         });
 
@@ -201,18 +299,28 @@ makes.forEach((make, index) => {
 // Global variable to store all model options
 let allModelOptions = [];
 
+// Global variable to store unique models
+let uniqueModels = [];
+
 // Populate model dropdown list with unique models
-async function populateModelDropdown(selectedModelList) {
-    const selectedMakesList = document.querySelectorAll('.results-dropdown-selected-list[data-type="selected-make"]');
+async function populateModelDropdown() {
     const selectedModels = [];
 
-    selectedMakesList.forEach((selectedMake) => {
-        const make = selectedMake.textContent.trim();
-        selectedModels.push(...allModelOptions.filter(option => option.startsWith(make + '_')).map(option => option.split('_')[1]));
-    });
+// Create a set to store unique models
+const uniqueModelsSet = new Set();
 
-    // Remove duplicates from the selectedModels array
-    const uniqueModels = [...new Set(selectedModels)];
+// Iterate through allModelOptions and extract model options for selected makes
+selectedMakes.forEach(make => {
+    allModelOptions.forEach(option => {
+        if (option.startsWith(make + '_')) {
+            const model = option.split('_')[1];
+            uniqueModelsSet.add(model); // Add model to the set
+        }
+    });
+});
+
+// Convert the set to an array of unique models
+uniqueModels = [...uniqueModelsSet];
 
     // Sort the unique models alphabetically
     uniqueModels.sort((a, b) => a.localeCompare(b));
@@ -243,15 +351,16 @@ async function populateModelDropdown(selectedModelList) {
 }
 
 // Function to remove model options for a specific make from allModelOptions array
-function removeModelOptionsForMake(make) {
-    allModelOptions = allModelOptions.filter(model => !model.startsWith(make + '_'));
-}
+// function removeModelOptionsForMake(make) {
+//    allModelOptions = allModelOptions.filter(model => !model.startsWith(make + '_'));
+//}
 
-// Function to remove models from dropdown after the matching make is deleted
 async function clearModelDropdown(deletedMake) {
-    const selectedList = document.querySelector('.results-dropdown-selected-list');
     const selectedSections = document.querySelectorAll('.results-section[data-type="model-section"]');
+    const selectedMakesList = document.querySelectorAll('.results-dropdown-selected-list[data-type="selected-make"]');
+    const modelDropdowns = document.querySelectorAll('.results-dropdown-list');
 
+    // Remove models associated with the deleted make from the dropdowns
     selectedSections.forEach(selectedSection => {
         const modelDropdown = selectedSection.querySelector('.results-dropdown-list');
         const modelItems = modelDropdown.querySelectorAll('.results-dropdown-list-item');
@@ -264,48 +373,21 @@ async function clearModelDropdown(deletedMake) {
         });
 
         // Clear model dropdown if no make is selected
-        if (selectedList.querySelectorAll('.results-dropdown-selected-list-item').length === 0) {
+        if (selectedMakesList.length === 0) {
             modelDropdown.innerHTML = "";
         }
     });
-}
 
-// Function to toggle the side menu
-function toggleSideMenu() {
-    const sideMenuOverlay = document.querySelector(".side-menu-overlay");
-    sideMenuOverlay.classList.toggle("show");
-}
-
-// Event listener for the close button
-document.querySelector(".mobile-side-menu-close").addEventListener("click", function() {
-    toggleSideMenu(); // Call the toggleSideMenu function when the close button is clicked
-});
-
-// Function to toggle active class on results-side-menu-dropdown
-function toggleDropdown() {
-    const dropdownList = this.nextElementSibling.nextElementSibling; // Get the next sibling element, which is the dropdown list
-    dropdownList.classList.toggle('active');
-
-    // Get the SVG element
-    const svgIcon = this.querySelector('.results-side-menu-icon');
-
-    // Toggle the SVG icon based on the presence of the 'active' class
-    if (dropdownList.classList.contains('active')) {
-        // Dropdown is active, change the SVG icon
-        svgIcon.setAttribute('viewBox', '0 0 448 512');
-        svgIcon.innerHTML = '<path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/>'; // SVG path for active state
-    } else {
-        // Dropdown is inactive, change the SVG icon
-        svgIcon.setAttribute('viewBox', '0 0 448 512');
-        svgIcon.innerHTML = '<path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>'; // SVG path for inactive state
-    }
-}
-
-// Event listener to toggle active class on click of results-side-menu-dropdown
-document.querySelectorAll('.results-side-menu-dropdown').forEach(button => {
-    button.addEventListener('click', toggleDropdown);
-    button.addEventListener('blur', () => {
-        const dropdownList = button.nextElementSibling;
-        dropdownList.classList.remove('active');
+    // Remove the deleted make from the selected makes list
+    selectedMakesList.forEach(selectedMakeList => {
+        const makeItems = selectedMakeList.querySelectorAll('.results-dropdown-selected-list-item');
+        makeItems.forEach(makeItem => {
+            if (makeItem.textContent.trim() === deletedMake) {
+                makeItem.remove(); // Remove the make item from the DOM
+            }
+        });
     });
-});
+
+    // Call populateModelDropdown again to update the model dropdowns
+    await populateModelDropdown();
+}
