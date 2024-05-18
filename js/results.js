@@ -53,7 +53,7 @@ document.querySelectorAll('.results-side-menu-dropdown').forEach(button => {
 });
 
 // Handle form submission
-document.querySelectorAll('[data-type="search-button"]').forEach(button => {
+/* document.querySelectorAll('[data-type="search-button"]').forEach(button => {
     button.addEventListener('click', async () => {
         const make = document.getElementById('make').value;
         const model = document.getElementById('model').value;
@@ -73,22 +73,66 @@ document.querySelectorAll('[data-type="search-button"]').forEach(button => {
     });
   });
 
-// Function to fetch search results
-async function fetchSearchResults(requestData) {
+  async function handleClickSearch() {
+    const searchParams = {
+      zip: "your_zip_value",
+      distance: "your_distance_value",
+      type: "your_type_value",
+      certified: "your_certified_value",
+      yearFrom: "your_yearFrom_value",
+      yearTo: "your_yearTo_value",
+      makeArray: ["make1", "make2"], // Example: ["Toyota", "Honda"]
+      modelArray: ["model1", "model2"], // Example: ["Camry", "Accord"]
+      colorsArray: ["color1", "color2"], // Example: ["Red", "Blue"]
+      bodyArray: ["body1", "body2"], // Example: ["Sedan", "SUV"]
+      mileageArray: [{ value: "mileage1" }, { value: "mileage2" }], // Example: [{ value: "Under 50,000" }, { value: "50,000 - 100,000" }]
+      priceArray: [{ value: "price1" }, { value: "price2" }], // Example: [{ value: "$10,000 - $20,000" }, { value: "$20,000 - $30,000" }]
+      engineArray: ["engine1", "engine2"], // Example: ["4-Cylinder", "6-Cylinder"]
+      transmissionArray: ["transmission1", "transmission2"], // Example: ["Automatic", "Manual"]
+      trainArray: ["train1", "train2"], // Example: ["Front-Wheel Drive", "All-Wheel Drive"]
+    };
+  
+    const queryParams = {
+      zip: searchParams.zip,
+      distance: searchParams.distance,
+      type: searchParams.type,
+      certified: searchParams.certified,
+      yearFrom: searchParams.yearFrom,
+      yearTo: searchParams.yearTo,
+      makes: searchParams.makeArray.join(","),
+      models: searchParams.modelArray.join(","),
+      colors: searchParams.colorsArray.join(","),
+      bodyStyles: searchParams.bodyArray.join(","),
+      mileage: searchParams.mileageArray.length > 0 ? searchParams.mileageArray.map((item) => item.value).join(",") : "",
+      price: searchParams.priceArray.length > 0 ? searchParams.priceArray.map((price) => price.value).join(",") : "",
+      engines: searchParams.engineArray.join(","),
+      transmissions: searchParams.transmissionArray.join(","),
+      driveTrains: searchParams.trainArray.join(","),    
+      rows: 10
+    };
+  
     try {
-      const API_KEY = 'YOUR_API_KEY'; // Replace with your API key
-      const baseUrl = `https://api.drivechicago.cloud/vehicle/search?apiKey=${API_KEY}`;
-      
-      const res = await axios.post(baseUrl, requestData, {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-      return res.data;
+      // Simulate fetching search results
+      const searchResults = await fetchSearchResults(queryParams);
+      console.log("Search results:", searchResults);
     } catch (error) {
-      throw new Error('Error fetching search results');
+      console.error("Error fetching search results:", error);
     }
   }
+  
+  // Function to fetch search results (simulated for now)
+  async function fetchSearchResults(queryParams) {
+    // Simulated search results
+    const simulatedResults = [
+      { make: "Toyota", model: "Camry" },
+      { make: "Honda", model: "Accord" },
+      // Add more simulated results as needed
+    ];
+    return simulatedResults;
+  }
+  
+  // Call the function to handle search
+  handleClickSearch();  
   
   // Function to render search results
   function renderSearchResults(results) {
@@ -97,7 +141,7 @@ async function fetchSearchResults(requestData) {
       html += `<div>${result.make} ${result.model}</div>`;
     });
     return html;
-  }
+  } */
 
 // Function to populate dropdown options
 function populateDropdown(selectElement, options, defaultValue, defaultText) {
@@ -154,7 +198,7 @@ async function addSelectedMake(make, selectedMakeList) {
             if (index !== -1) {
                 selectedMakes.splice(index, 1);
             }
-            await clearModelDropdown(make); // Clear model dropdown options for the deleted make
+            await removeSelectedModels(make); // Remove associated models
         });
 
         listItem.appendChild(closeButton);
@@ -173,6 +217,7 @@ async function addSelectedMake(make, selectedMakeList) {
 
 // Function to add selected model to the selected model list
 async function addSelectedModel(model, selectedModelList) {
+    console.log(model, 'Model being added...')
     // Check if selectedModelList is null or undefined
     if (!selectedModelList) {
         console.error('Selected model list is null or undefined.');
@@ -304,8 +349,6 @@ let uniqueModels = [];
 
 // Populate model dropdown list with unique models
 async function populateModelDropdown() {
-    const selectedModels = [];
-
 // Create a set to store unique models
 const uniqueModelsSet = new Set();
 
@@ -342,6 +385,7 @@ uniqueModels = [...uniqueModelsSet];
                 // Handle model selection
                 // We need to find the selected model list associated with this dropdown
                 const selectedModelList = modelDropdown.closest('.results-section').querySelector('.results-dropdown-selected-list[data-type="selected-model"]');
+                console.log(selectedModelList, 'selected model list');
                 addSelectedModel(model, selectedModelList);
             });
             listItem.appendChild(button);
@@ -350,37 +394,12 @@ uniqueModels = [...uniqueModelsSet];
     });
 }
 
-// Function to remove model options for a specific make from allModelOptions array
-// function removeModelOptionsForMake(make) {
-//    allModelOptions = allModelOptions.filter(model => !model.startsWith(make + '_'));
-//}
-
 async function clearModelDropdown(deletedMake) {
-    const selectedSections = document.querySelectorAll('.results-section[data-type="model-section"]');
-    const selectedMakesList = document.querySelectorAll('.results-dropdown-selected-list[data-type="selected-make"]');
-    const modelDropdowns = document.querySelectorAll('.results-dropdown-list');
-
-    // Remove models associated with the deleted make from the dropdowns
-    selectedSections.forEach(selectedSection => {
-        const modelDropdown = selectedSection.querySelector('.results-dropdown-list');
-        const modelItems = modelDropdown.querySelectorAll('.results-dropdown-list-item');
-
-        modelItems.forEach(modelItem => {
-            const modelMake = modelItem.textContent.trim().split('_')[0];
-            if (modelMake === deletedMake) {
-                modelItem.remove(); // Remove the model item from the DOM
-            }
-        });
-
-        // Clear model dropdown if no make is selected
-        if (selectedMakesList.length === 0) {
-            modelDropdown.innerHTML = "";
-        }
-    });
-
-    // Remove the deleted make from the selected makes list
-    selectedMakesList.forEach(selectedMakeList => {
-        const makeItems = selectedMakeList.querySelectorAll('.results-dropdown-selected-list-item');
+    const selectedMakesLists = document.querySelectorAll('.results-dropdown-selected-list[data-type="selected-make"]');
+    
+    // Iterate over selectedMakesLists to find and remove the deleted make
+    selectedMakesLists.forEach(selectedMakesList => {
+        const makeItems = selectedMakesList.querySelectorAll('.results-dropdown-selected-list-item');
         makeItems.forEach(makeItem => {
             if (makeItem.textContent.trim() === deletedMake) {
                 makeItem.remove(); // Remove the make item from the DOM
@@ -390,4 +409,34 @@ async function clearModelDropdown(deletedMake) {
 
     // Call populateModelDropdown again to update the model dropdowns
     await populateModelDropdown();
+}
+
+async function removeSelectedModels(make) {
+    console.log("Removing selected models for make:", make);
+    console.log(selectedMakes, 'selected makes');
+
+    // Check if the make is not selected
+    if (!selectedMakes.includes(make)) {
+        console.log(make, 'make');
+        // Find all selected model lists associated with the deleted make
+        const selectedModelLists = document.querySelectorAll('.results-dropdown-selected-list[data-type="selected-model"]');
+        console.log("Selected model lists:", selectedModelLists);
+
+        // Iterate over selectedModelLists and remove models associated with the deleted make
+        selectedModelLists.forEach(selectedModelList => {
+            const modelItems = selectedModelList.querySelectorAll('.results-dropdown-selected-list-item');
+            console.log("Model items:", modelItems);
+
+            modelItems.forEach(modelItem => {
+                console.log(modelItem, 'model item')
+                const modelName = modelItem.textContent.trim();
+                const modelMake = modelName.split('_')[0];
+                if (modelMake === make) {
+                    modelItem.remove(); // Remove the model item from the DOM
+                }
+            });
+        });
+    } else {
+        console.log("Make", make, "is not selected. No models to remove.");
+    }
 }
