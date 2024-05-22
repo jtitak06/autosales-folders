@@ -129,6 +129,10 @@ body {
     }
 }
 
+.product-image-button-icon {
+    height: 18px;
+}
+
 .product-small-image {
     margin: 0 4px;
     max-width: 58px;
@@ -564,7 +568,7 @@ body {
 }
 
 .features-icon {
-    color: #1a79ff;
+    fill: #1a79ff;
     height: 48px;
     width: 48px;
     margin-right: 1.375rem;
@@ -1056,6 +1060,10 @@ body {
     border-radius: 100px;
     width: 186px;
     cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 649px) {
@@ -1065,6 +1073,7 @@ body {
         font-size: 2.05vw;
         border: 0.2vw solid #1a79ff;
         height: 5.24vw;
+        font-size: 2.16vw;
     }
 }
 
@@ -1074,11 +1083,14 @@ body {
 
 .product-tab-phone-icon {
     margin-right: 6px;
+    fill: #1a79ff;
+    height: 12px;
 }
 
 @media screen and (max-width: 649px) {
     .product-tab-phone-icon {
         margin-right: 0.95vw;
+        height: 1.85vw;
     }
 }
 
