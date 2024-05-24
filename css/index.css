@@ -380,6 +380,7 @@ option {
     cursor: pointer;
     flex-wrap: nowrap;
     font-size: 16px;
+    height: 20px;
 }
 
 .make-table-link:hover {
@@ -392,7 +393,7 @@ option {
 
 @media screen and (max-width: 899px) {
     .make-table-link.last {
-        margin: 4px 0 4px 64px;
+        margin: 4px 0 4px 58px;
     }
 }
 
@@ -400,6 +401,7 @@ option {
     .make-table-link {
         margin: .62vw 0 .62vw 9.86vw;
         font-size: 2.47vw;
+        height: 3.09vw;
     }
 }
 
