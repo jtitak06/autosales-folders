@@ -361,7 +361,7 @@ option {
 @media screen and (max-width: 899px) {
     .make-table-content {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(16, 50%); 
+        grid-template-rows: repeat(16, 1fr); 
     }
 }
 
