@@ -876,19 +876,23 @@ option {
 
 .carousel {
     display: flex;
+    justify-content: center;
     overflow: hidden;
     position: relative;
 }
 
+.carousel-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
+    height: 32px;
     font-size: 24px;
-    cursor: pointer;
-    z-index: 1;
+    display: flex;
+    align-items: center;
 }
 
 .prev {
@@ -1036,9 +1040,9 @@ option {
     padding: 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin: 18px 0 12px;
-    justify-content: center;
 }
 
 @media screen and (max-width: 649px) {
@@ -1098,6 +1102,11 @@ option {
 .grid-wishlist.active {
     color: red;
     opacity: 1;
+}
+
+.grid-wishlist-icon {
+    height: 18px;
+    fill: #ccc;
 }
 
 @media screen and (max-width: 649px) {
