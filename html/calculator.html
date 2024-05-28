@@ -56,7 +56,7 @@
             </div>
             <div class="desktop-header-bottom">
                 <div class="desktop-title-wrapper">
-                    <a class="desktop-title" href="./index.html">
+                    <a class="desktop-title" href="../index.html">
                         AutoSales.com
                     </a>
                 </div>
@@ -326,7 +326,7 @@
                 </ul>
                 <ul class="mobile-menu-links">
                     <li class="mobile-menu-item">
-                        <a class="mobile-menu-link" href="../html/index.html">
+                        <a class="mobile-menu-link" href="../index.html">
                             <span class="mobile-menu-text">Home</span>
                             <svg class="mobile-menu-right" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -463,8 +463,7 @@
         </form>
         <div class="calculator-display">
             <h3 class="calculator-section-title">Your Estimated Payment</h3>
-            <h2 class="calculator-display-amount">${monthlyPayment <= 0 ? '0' :
-                    monthlyPayment.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' )} / month</h2>
+            <h2 class="calculator-display-amount">$0 / month</h2>
                     <div class="calculator-section-wrapper">
                         <p class="calculator-display-disclaimer">*Based on 5.61% APR</p>
                     </div>
@@ -495,19 +494,15 @@
                         </li>
                         <li class="calculator-details-list-item">
                             <p class="calculator-details-text bold">Total Interest</p>
-                            <p class="calculator-details-text bold">${interestAmount <= 0 ? '0' :
-                                    interestAmount.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' )}</p>
+                            <p class="calculator-details-text bold">$0</p>
                         </li>
                         <li class="calculator-details-list-item">
                             <p class="calculator-details-text bold">Total Loan & Interest</p>
-                            <p class="calculator-details-text bold">${interestPlusLoanAmount <= 0 ? '0' :
-                                    interestPlusLoanAmount.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','
-                                    )}</p>
+                            <p class="calculator-details-text bold">$0</p>
                         </li>
                         <li class="calculator-details-list-item">
                             <p class="calculator-details-text bold">Monthly Payment</p>
-                            <p class="calculator-details-text bold">${monthlyPayment <= 0 ? '0' :
-                                    monthlyPayment.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' )}</p>
+                            <p class="calculator-details-text bold">$0</p>
                         </li>
                     </ul>
                     <div class="calculator-details-button-wrapper">

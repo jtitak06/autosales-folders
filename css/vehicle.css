@@ -1223,11 +1223,18 @@ body {
     }
 }
 
+.carousel-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .carousel {
     display: flex;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    width: fit-content;
 }
 
 .carousel-btn-wrapper {
@@ -1242,14 +1249,40 @@ body {
     font-size: 24px;
     display: flex;
     align-items: center;
+    border-radius: 100%;
+    border: none;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    position: absolute;
+    z-index: 4;
+}
+
+@media screen and (max-width: 649px) {
+    .carousel-btn {
+        height: 4.93vw;
+        font-size: 3.70vw;
+    }
 }
 
 .prev {
-    left: 10px;
+    left: 24px;
+}
+
+@media screen and (max-width: 649px) {
+    .prev {
+        left: 3.70vw;
+    }
 }
 
 .next {
-    right: 10px;
+    right: 24px;
+}
+
+@media screen and (max-width: 649px) {
+    .next {
+        right: 3.70vw;
+    }
 }
 
 .grid-card {
@@ -1263,6 +1296,7 @@ body {
     border-radius: 4px;
     border: rgba(0, 0, 0, 0.2) 0.5px solid;
     cursor: default;
+    z-index: 2;
 }
 
 @media (max-width: 1149px) {
@@ -1271,9 +1305,23 @@ body {
     }
 }
 
+@media (max-width: 1149px) {
+    .grid-card.fourth {
+        display: none;
+        visibility: hidden;
+    }
+}
+
 @media (max-width: 859px) {
     .grid-card {
         width: calc(50% - 15px); /* Adjust width and margin as needed */
+    }
+}
+
+@media (max-width: 859px) {
+    .grid-card.third {
+        display: none;
+        visibility: hidden;
     }
 }
 
