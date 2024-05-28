@@ -874,11 +874,18 @@ option {
     }
 }
 
+.carousel-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .carousel {
     display: flex;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    width: fit-content;
 }
 
 .carousel-btn-wrapper {
