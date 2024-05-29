@@ -34,7 +34,7 @@
 }
 
 .desktop-header-top__left {
-    background: #1a79ff;
+    background: #0066ff;
     width: 50vw;
     list-style-type: none;
     display: flex;
@@ -100,8 +100,12 @@
 }
 
 .desktop-title {
-    color: #0064f0;
     text-decoration: none;
+    display: flex;
+}
+
+.desktop-title-logo {
+    height: 38px;
 }
 
 .drive-chicago-link {
